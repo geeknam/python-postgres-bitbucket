@@ -1,5 +1,7 @@
 FROM postgres:latest
 
+MAINTAINER Nam Ngo <namngology@gmail.com>
+
 # remove several traces of debian python
 RUN apt-get purge -y python.*
 
