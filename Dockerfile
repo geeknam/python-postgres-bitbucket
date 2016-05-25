@@ -11,8 +11,10 @@ ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
+        gcc \
         libsqlite3-0 \
         libssl1.0.0 \
+        libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # gpg: key 18ADD4FF: public key "Benjamin Peterson <benjamin@python.org>" imported
@@ -26,7 +28,6 @@ ENV PYTHON_PIP_VERSION 8.1.2
 RUN set -ex \
     && buildDeps=' \
         curl \
-        gcc \
         libbz2-dev \
         libc6-dev \
         libncurses-dev \
@@ -36,7 +37,6 @@ RUN set -ex \
         make \
         xz-utils \
         zlib1g-dev \
-        libpq-dev \
     ' \
     && apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
     && curl -fSL "https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz" -o python.tar.xz \
