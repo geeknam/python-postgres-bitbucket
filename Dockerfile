@@ -9,10 +9,8 @@ ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
-        gcc \
         libsqlite3-0 \
         libssl1.0.0 \
-        libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # gpg: key 18ADD4FF: public key "Benjamin Peterson <benjamin@python.org>" imported
@@ -26,6 +24,7 @@ ENV PYTHON_PIP_VERSION 8.1.2
 RUN set -ex \
     && buildDeps=' \
         curl \
+        gcc \
         libbz2-dev \
         libc6-dev \
         libncurses-dev \
@@ -62,3 +61,8 @@ RUN set -ex \
         \) -exec rm -rf '{}' + \
     && apt-get purge -y --auto-remove $buildDeps \
     && rm -rf /usr/src/python ~/.cache
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        gcc \
+        libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
