@@ -65,4 +65,5 @@ RUN set -ex \
 RUN apt-get update && apt-get install -y --no-install-recommends \
         gcc \
         libpq-dev \
+        libjpeg-dev \
     && rm -rf /var/lib/apt/lists/*
