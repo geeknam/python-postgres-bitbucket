@@ -67,3 +67,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libpq-dev \
         libjpeg-dev \
     && rm -rf /var/lib/apt/lists/*
+
+ADD requirements.txt /requirements.txt
+
+RUN pip intall -r /requirements.txt
