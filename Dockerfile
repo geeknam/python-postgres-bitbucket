@@ -70,4 +70,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 ADD requirements.txt /requirements.txt
 
-RUN pip intall -r /requirements.txt
+RUN pip install -r /requirements.txt
