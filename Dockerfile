@@ -68,6 +68,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libjpeg-dev \
     && rm -rf /var/lib/apt/lists/*
 
-ADD requirements.txt /requirements.txt
+ADD requirements /requirements
 
-RUN pip install -r /requirements.txt
+RUN pip install -r /requirements/base.txt
